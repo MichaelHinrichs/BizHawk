@@ -25,13 +25,12 @@ namespace BizHawk.DBManTool
 			for (int i = 0; ; )
 			{
 				if (i == args.Length) break;
-				var arg = args[i++];
-				if (arg == "--hashes")
-					fpHash = args[i++];
-				if (arg == "--redump")
-					fpRedump = args[i++];
-				if (arg == "--outfile")
-					fpOutfile = args[i++];
+				switch (args[i++])
+				{
+					case "--hashes": fpHash = args[i++]; break;
+					case "--redump": fpRedump = args[i++]; break;
+					case "--outfile": fpOutfile = args[i++]; break;
+				}
 			}
 
 			var hashes = new Dictionary<string, HashRecord>();
