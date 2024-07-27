@@ -53,9 +53,12 @@ namespace BizHawk.DBManTool
 		public string SortString()
 		{
 			var ret = "";
-			if (Game.Classification == "Firmware") ret += "[BIOS] ";
-			if (Game.Classification == "Homebrew") ret += "[Homebrew] ";
-			if (Game.Classification == "Test Rom") ret += "[Test ROM] ";
+			switch (Game.Classification)
+			{
+				case "Firmware": ret += "[BIOS] "; break;
+				case "Homebrew": ret += "[Homebrew] "; break;
+				case "Test Rom": ret += "[Test ROM] "; break;
+			}
 			ret += Name;
 			ret += "|" + RegionRank + "|" + VersionTags;
 			return ret;
@@ -66,9 +69,12 @@ namespace BizHawk.DBManTool
 			get
 			{
 				var ret = "";
-				if (Game.Classification == "Firmware") ret += "[BIOS] ";
-				if (Game.Classification == "Homebrew") ret += "[Homebrew] ";
-				if (Game.Classification == "Test Rom") ret += "[Test ROM] ";
+				switch (Game.Classification)
+				{
+					case "Firmware": ret += "[BIOS] "; break;
+					case "Homebrew": ret += "[Homebrew] "; break;
+					case "Test Rom": ret += "[Test ROM] "; break;
+				}
 				ret += Name;
 				return ret;
 			}
