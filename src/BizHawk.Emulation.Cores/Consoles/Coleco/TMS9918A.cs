@@ -143,26 +143,25 @@ namespace BizHawk.Emulation.Cores.ColecoVision
 			if (scanLine >= 192)
 				return;
 
-			if (TmsMode == 2)
-			{
-				RenderBackgroundM2(scanLine);
-				RenderTmsSprites(scanLine);
-			}
-			else if (TmsMode == 0)
-			{
-				RenderBackgroundM0(scanLine);
-				RenderTmsSprites(scanLine);
-			}
-			else if (TmsMode == 3)
-			{
-				RenderBackgroundM3(scanLine);
-				RenderTmsSprites(scanLine);
-			}
-			else if (TmsMode == 1)
-			{
-				RenderBackgroundM1(scanLine);
-				// no sprites (text mode)
-			}
+			switch (TmsMode)
+   			{
+				case = 0:
+					RenderBackgroundM0(scanLine);
+					RenderTmsSprites(scanLine);
+    					break;
+				case = 1:
+					RenderBackgroundM1(scanLine);
+					// no sprites (text mode)
+    					break;
+				case = 2:
+					RenderBackgroundM2(scanLine);
+					RenderTmsSprites(scanLine);
+    					break;
+				case = 3:
+					RenderBackgroundM3(scanLine);
+					RenderTmsSprites(scanLine);
+    					break;
+   			}
 		}
 
 		private void RenderBackgroundM0(int scanLine)
