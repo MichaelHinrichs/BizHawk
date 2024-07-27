@@ -145,19 +145,19 @@ namespace BizHawk.Emulation.Cores.ColecoVision
 
 			switch (TmsMode)
    			{
-				case = 0:
+				case 0:
 					RenderBackgroundM0(scanLine);
 					RenderTmsSprites(scanLine);
     					break;
-				case = 1:
+				case 1:
 					RenderBackgroundM1(scanLine);
 					// no sprites (text mode)
     					break;
-				case = 2:
+				case 2:
 					RenderBackgroundM2(scanLine);
 					RenderTmsSprites(scanLine);
     					break;
-				case = 3:
+				case 3:
 					RenderBackgroundM3(scanLine);
 					RenderTmsSprites(scanLine);
     					break;
