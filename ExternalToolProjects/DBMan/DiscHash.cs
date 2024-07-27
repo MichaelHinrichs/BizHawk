@@ -47,13 +47,15 @@ namespace BizHawk.DBManTool
 			for (int i = 0; ; )
 			{
 				if (i == args.Length) break;
-				var arg = args[i++];
-				if (arg == "--indir")
-					indir = args[i++];
-				if (arg == "--tempdir")
-					dpTemp = args[i++];
-				if (arg == "--outfile")
-					fpOutfile = args[i++];
+				switch(args[i++])
+				{
+					case "--indir"):
+						indir = args[i++]; break;
+					case "--tempdir"):
+						dpTemp = args[i++]; break;
+					case "--outfile"):
+						fpOutfile = args[i++]; break;
+				}
 			}
 
 			var done = new HashSet<string>();
