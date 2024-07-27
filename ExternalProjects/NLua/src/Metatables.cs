@@ -373,43 +373,43 @@ namespace NLua
 
 			switch (type)
 			{
-				case = typeof(long[])):
+				case typeof(long[])):
 					var arr = (long[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case =  typeof(float[])):
+				case  typeof(float[])):
 					var arr = (float[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(double[])):
+				case typeof(double[])):
 					var arr = (double[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(int[])):
+				case typeof(int[])):
 					var arr = (int[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(byte[])):
+				case typeof(byte[])):
 					var arr = (byte[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(short[])):
+				case typeof(short[])):
 					var arr = (short[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(ushort[])):
+				case typeof(ushort[])):
 					var arr = (ushort[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(ulong[])):
+				case typeof(ulong[])):
 					var arr = (ulong[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(uint[])):
+				case typeof(uint[])):
 					var arr = (uint[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
-				case = typeof(sbyte[])):
+				case typeof(sbyte[])):
 					var arr = (sbyte[])obj;
 					_translator.Push(luaState, arr[intIndex]);
 					return true;
