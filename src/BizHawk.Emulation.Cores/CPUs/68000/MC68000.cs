@@ -222,37 +222,39 @@ namespace BizHawk.Emulation.Cores.Components.M68000
 			{
 				string[] args = reader.ReadLine().Split(' ');
 				if (args[0].Trim() == "") continue;
-				if (args[0] == "[/" + id + "]") break;
-				else if (args[0] == "D0") D[0].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "D1") D[1].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "D2") D[2].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "D3") D[3].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "D4") D[4].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "D5") D[5].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "D6") D[6].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "D7") D[7].s32 = int.Parse(args[1], NumberStyles.HexNumber);
+				switch (args[0])
+				{
+					case "[/" + id + "]": break;
+					case "D0": D[0].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "D1": D[1].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "D2": D[2].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "D3": D[3].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "D4": D[4].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "D5": D[5].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "D6": D[6].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "D7": D[7].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
 
-				else if (args[0] == "A0") A[0].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "A1") A[1].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "A2") A[2].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "A3") A[3].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "A4") A[4].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "A5") A[5].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "A6") A[6].s32 = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "A7") A[7].s32 = int.Parse(args[1], NumberStyles.HexNumber);
+					case "A0": A[0].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "A1": A[1].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "A2": A[2].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "A3": A[3].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "A4": A[4].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "A5": A[5].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "A6": A[6].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "A7": A[7].s32 = int.Parse(args[1], NumberStyles.HexNumber); break;
 
-				else if (args[0] == "PC") PC = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == nameof(InterruptMaskLevel)) InterruptMaskLevel = int.Parse(args[1]);
-				else if (args[0] == "USP") usp = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "SSP") ssp = int.Parse(args[1], NumberStyles.HexNumber);
-				else if (args[0] == "S") s = bool.Parse(args[1]);
-				else if (args[0] == "M") m = bool.Parse(args[1]);
+					case "PC": PC = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case string p when p.nameof(InterruptMaskLevel): InterruptMaskLevel = int.Parse(args[1]); break;
+					case "USP": usp = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "SSP": ssp = int.Parse(args[1], NumberStyles.HexNumber); break;
+					case "S": s = bool.Parse(args[1]); break;
+					case "M": m = bool.Parse(args[1]); break;
 
-				else if (args[0] == nameof(TotalExecutedCycles)) TotalExecutedCycles = int.Parse(args[1]);
-				else if (args[0] == nameof(PendingCycles)) PendingCycles = int.Parse(args[1]);
+					case nameof(TotalExecutedCycles): TotalExecutedCycles = int.Parse(args[1]); break;
+					case nameof(PendingCycles): PendingCycles = int.Parse(args[1]); break;
 
-				else
-					Console.WriteLine("Skipping unrecognized identifier " + args[0]);
+					default: Console.WriteLine("Skipping unrecognized identifier " + args[0]); break;
+				}
 			}
 		}
 	}
