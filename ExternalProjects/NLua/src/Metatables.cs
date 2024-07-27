@@ -371,80 +371,54 @@ namespace NLua
 
 			var type = objType.UnderlyingSystemType;
 
-			if (type == typeof(long[]))
+			switch (type)
 			{
-				var arr = (long[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
+				case = typeof(long[])):
+					var arr = (long[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case =  typeof(float[])):
+					var arr = (float[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(double[])):
+					var arr = (double[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(int[])):
+					var arr = (int[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(byte[])):
+					var arr = (byte[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(short[])):
+					var arr = (short[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(ushort[])):
+					var arr = (ushort[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(ulong[])):
+					var arr = (ulong[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(uint[])):
+					var arr = (uint[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				case = typeof(sbyte[])):
+					var arr = (sbyte[])obj;
+					_translator.Push(luaState, arr[intIndex]);
+					return true;
+				default :
+					var array = (Array)obj;
+					var element = array.GetValue(intIndex);
+					_translator.Push(luaState, element);
+					return true;
 			}
-
-			if (type == typeof(float[]))
-			{
-				var arr = (float[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(double[]))
-			{
-				var arr = (double[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(int[]))
-			{
-				var arr = (int[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(byte[]))
-			{
-				var arr = (byte[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(short[]))
-			{
-				var arr = (short[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(ushort[]))
-			{
-				var arr = (ushort[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(ulong[]))
-			{
-				var arr = (ulong[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(uint[]))
-			{
-				var arr = (uint[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			if (type == typeof(sbyte[]))
-			{
-				var arr = (sbyte[])obj;
-				_translator.Push(luaState, arr[intIndex]);
-				return true;
-			}
-
-			var array = (Array)obj;
-			var element = array.GetValue(intIndex);
-			_translator.Push(luaState, element);
-			return true;
 		}
 
 		private int GetMethodFallback(LuaState luaState, Type objType, object obj, string methodName)
